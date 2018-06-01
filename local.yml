@@ -14,7 +14,7 @@
       changed_when: False
 
   vars:
-    user: seburgi
+    user: seb
     distro: ${ansible_distribution}
     pkg_mgr: ${ansible_pkg_mgr}
     zsh_theme: powerlevel9k/powerlevel9k
