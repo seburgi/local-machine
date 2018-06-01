@@ -1,0 +1,7 @@
+---
+## Configure terminator 
+- name: Create conf folder in home directory
+  file: path=/home/{{user}}/.config/terminator state=directory owner={{user}}
+
+- name: deploy terminator config
+  template: src=../files/terminator.config dest=/home/{{user}}/.config/terminator/config owner={{user}}

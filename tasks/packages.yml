@@ -1,0 +1,13 @@
+- name: Install packages
+  apt: name={{item}}
+  with_items:
+    - code
+    - git
+    - git-core
+    - graphviz
+    - fonts-powerline
+    - kdiff3
+    - krename
+    - krusader
+    - zsh
+

@@ -1,0 +1,28 @@
+---
+- hosts: localhost
+  become: true
+  pre_tasks:
+
+    # - name: Download microsoft key for VS Code repo
+    #   command: curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /etc/apt/trusted.gpg.d/microsoft.gpg
+
+    # - name: Add repo for VS Code
+    #   command: sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+    
+    - name: update repositories
+      apt: update_cache=yes
+      changed_when: False
+
+  vars:
+    user: seburgi
+    distro: ${ansible_distribution}
+    pkg_mgr: ${ansible_pkg_mgr}
+    zsh_theme: powerlevel9k/powerlevel9k
+
+  tasks:
+    #- include: tasks/users.yml
+    #- include: tasks/cron.yml
+    - include: tasks/packages.yml
+    - include: tasks/ohmyzsh.yml
+    - include: tasks/terminator.yml
+    - include: tasks/snap.yml
